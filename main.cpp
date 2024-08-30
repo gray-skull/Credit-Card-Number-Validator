@@ -106,6 +106,7 @@ int main() {
 	bool isInputValid = false;
 	bool isInputConfirmed = false;
 	bool isContinue = true;
+	bool isCardValid = false;
 	// while the input is not valid, keep asking for a valid number
     // while the user has not confirmed the number, keep asking for confirmation
 	while (isContinue) {
@@ -141,9 +142,13 @@ int main() {
 			} while (!(isValidChoice));
 		} while (!(isInputConfirmed));
 
-		std::cout << (validCardCheck(inputNumber) ? "This card is valid\n" : "This card is NOT valid\n");
-		std::cout << "This card is from " << cardType(inputNumber) << std::endl;
-		std::cout << "Would you like to validate another card? (1 - \"Yes\" / 0 - \"No\"): ";
+		isCardValid = validCardCheck(inputNumber);
+		std::cout << (isCardValid ? "This card is valid\n" : "This card is NOT valid\n");
+		if (isCardValid)
+		{
+			std::cout << "This card is from " << cardType(inputNumber) << std::endl;
+		}
+		std::cout << "\nWould you like to validate another card? (1 - \"Yes\" / 0 - \"No\"): ";
 		char continueChoice = 'Z';
 		std::cin >> continueChoice;
 		// clear input buffer
@@ -153,6 +158,7 @@ int main() {
 		else if (continueChoice == '1') {
 			isInputValid = false;
 			isInputConfirmed = false;
+			std::cout << std::endl;
 		}
 		else {
 			std::cout << "**** Please enter 1 or 0 only ****\n";
