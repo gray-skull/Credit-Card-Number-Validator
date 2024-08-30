@@ -105,39 +105,65 @@ int main() {
 	std::string inputNumber = "0";
 	bool isInputValid = false;
 	bool isInputConfirmed = false;
-	do {
+	bool isContinue = true;
+	bool isCardValid = false;
+	// while the input is not valid, keep asking for a valid number
+    // while the user has not confirmed the number, keep asking for confirmation
+	while (isContinue) {
 		do {
-			std::cout << "Please input the card number to validate : ";
-			std::cin >> std::ws >> inputNumber;
-			// clear input buffer
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			isInputValid = stringCheck(inputNumber);
-			if (!isInputValid) {
-				std::cout << "Please input a valid number!\n";
-				inputNumber = "0";
-			}
-		} while (!(isInputValid));
-		bool isValidChoice = false;
-		char confirmNum = 'Z';
-		do {
-			std::cout << "You entered: ";
-			printNumber(inputNumber);
-			std::cout << std::endl << "Is this number correct? (1 - \"Yes\" / 0 - \"No\"): ";
-			std::cin >> confirmNum;
-			// clear input buffer
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			if (confirmNum == '1') {
-				isValidChoice = true;
-				isInputConfirmed = true;
-			}
-			else if (confirmNum == '0')
-				isValidChoice = true;
-			else
-				std::cout << "**** Please enter 1 or 0 only ****\n";
-		} while (!(isValidChoice));
-	} while (!(isInputConfirmed));
-	
-	std::cout << (validCardCheck(inputNumber) ? "This card is valid\n" : "This card is NOT valid\n");
-	std::cout << "This card is from " << cardType(inputNumber) << std::endl;
+			do {
+				std::cout << "Please input the card number to validate : ";
+				std::cin >> std::ws >> inputNumber;
+				// clear input buffer
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				isInputValid = stringCheck(inputNumber);
+				if (!isInputValid) {
+					std::cout << "Please input a valid number!\n";
+					inputNumber = "0";
+				}
+			} while (!(isInputValid));
+			bool isValidChoice = false;
+			char confirmNum = 'Z';
+			do {
+				std::cout << "You entered: ";
+				printNumber(inputNumber);
+				std::cout << std::endl << "Is this number correct? (1 - \"Yes\" / 0 - \"No\"): ";
+				std::cin >> confirmNum;
+				// clear input buffer
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				if (confirmNum == '1') {
+					isValidChoice = true;
+					isInputConfirmed = true;
+				}
+				else if (confirmNum == '0')
+					isValidChoice = true;
+				else
+					std::cout << "**** Please enter 1 or 0 only ****\n";
+			} while (!(isValidChoice));
+		} while (!(isInputConfirmed));
+
+		isCardValid = validCardCheck(inputNumber);
+		std::cout << (isCardValid ? "This card is valid\n" : "This card is NOT valid\n");
+		if (isCardValid)
+		{
+			std::cout << "This card is from " << cardType(inputNumber) << std::endl;
+		}
+		std::cout << "\nWould you like to validate another card? (1 - \"Yes\" / 0 - \"No\"): ";
+		char continueChoice = 'Z';
+		std::cin >> continueChoice;
+		// clear input buffer
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		if (continueChoice == '0')
+			isContinue = false;
+		else if (continueChoice == '1') {
+			isInputValid = false;
+			isInputConfirmed = false;
+			std::cout << std::endl;
+		}
+		else {
+			std::cout << "**** Please enter 1 or 0 only ****\n";
+			isContinue = false;
+		}
+	}
 	return 0;
 }
