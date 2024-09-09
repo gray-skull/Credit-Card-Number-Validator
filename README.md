@@ -6,13 +6,13 @@ This project is a C++ program designed to validate credit card numbers and ident
 
 ## Features
 
-- Credit Card Validation: Uses the Luhn Algorithm to check the validity of the credit card number.
+- **Credit Card Validation**: Uses the Luhn Algorithm to check the validity of the credit card number.
 
-- Card Type Detection: Identifies the card type based on the card number's prefix and length (supports Visa, MasterCard, American Express, and more).
+- **Card Type Detection**: Identifies the card type based on the card number's prefix and length (supports Visa, MasterCard, American Express, and more).
 
-- Input validation: Ensures that only numeric values are processed.
+- **Input validation**: Ensures that only numeric values are processed.
 
-- Simple user interface: Text-based interface that prompts the user for input and returns validation results and the card type.
+- **Simple user interface**: Text-based interface that prompts the user for input and returns validation results and the card type.
 
 
 ## Supported Card Types
