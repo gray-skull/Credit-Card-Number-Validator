@@ -45,21 +45,21 @@ The program can detect the following card types:
 
 1. Clone the repository:
 
-'''git clone https://github.com/gray-skull/Credit-Card-Number-Validator.git'''
+```git clone https://github.com/gray-skull/Credit-Card-Number-Validator.git```
 
 2. Navigate to the project directory:
 
-'''cd Credit-Card-Number-Validator'''
+```cd Credit-Card-Number-Validator```
 
 3. Compile the program:
 
 Using g++:
 
-'''g++ -o validator main.cpp'''
+```g++ -o validator main.cpp```
 
 4. Run the program:
 
-'''./validator'''
+```./validator```
 
 
 
@@ -69,31 +69,31 @@ Once the program is running, the user is prompted to enter a credit card number.
 
 1. Run the program:
 
-'''./validator'''
+```./validator```
 
 2. Enter the credit card number:
 
-'''Please enter the credit card number: 4532015112830366'''
+```Please enter the credit card number: 4532015112830366```
 
 3. The program will output the card type and validity:
 
-'''Card Type: Visa
-The credit card number is valid.'''
+```Card Type: Visa
+The credit card number is valid.```
 
 
 ## Example Input and Output
 
-'''Please enter the credit card number: 4111111111111111
+```Please enter the credit card number: 4111111111111111
 Card Type: Visa
-The credit card number is valid.'''
+The credit card number is valid.```
 
-'''Please enter the credit card number: 371449635398431
+```Please enter the credit card number: 371449635398431
 Card Type: American Express
-The credit card number is valid.'''
+The credit card number is valid.```
 
-'''Please enter the credit card number: 1234567812345670
+```Please enter the credit card number: 1234567812345670
 Card Type: Unknown
-The credit card number is invalid.'''
+The credit card number is invalid.```
 
 ## Luhn Algorithm Explanation
 
@@ -118,17 +118,17 @@ The Luhn Algorithm is a simple checksum formula used to validate various identif
 
 1. Double every second digit:
 
-'''4 5 3 2 0 1 5 1 1 2 8 3 0 3 6 6
+```4 5 3 2 0 1 5 1 1 2 8 3 0 3 6 6
 becomes:
-8 5 6 2 0 1 10 1 2 2 16 3 0 3 12 6'''
+8 5 6 2 0 1 10 1 2 2 16 3 0 3 12 6```
 
 2. Subtract 9 from numbers greater than 9:
 
-'''8 5 6 2 0 1 1 1 2 2 7 3 0 3 3 6'''
+```8 5 6 2 0 1 1 1 2 2 7 3 0 3 3 6```
 
 3. Sum all the digits:
 
-'''8 + 5 + 6 + 2 + 0 + 1 + 1 + 1 + 2 + 2 + 7 + 3 + 0 + 3 + 3 + 6 = 50'''
+```8 + 5 + 6 + 2 + 0 + 1 + 1 + 1 + 2 + 2 + 7 + 3 + 0 + 3 + 3 + 6 = 50```
 
 4. Since 50 is divisible by 10, the number is valid.
 
